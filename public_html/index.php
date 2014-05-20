@@ -2,7 +2,12 @@
 /**
  * Wikimedia Mailing Lists utilities
  *
+ * Usage:
+ *
+ *  - https://tools.wmflabs.org/list/?name=wikitech-l&action=lastentry
+ *
  * Short urls:
+ *
  * - wikitech-l:
  *   - http://bit.ly/wikitechLast
  *   - http://bit.ly/wikitechLatest
@@ -26,7 +31,7 @@
  * Configuration
  * -------------------------------------------------
  */
-require_once( __DIR__ . '/lib/basetool/InitTool.php' );
+require_once __DIR__ . '/../lib/basetool/InitTool.php';
 
 /**
  * Functions
@@ -56,7 +61,7 @@ function downloadListPage( $list = false, $path = '' ) {
 }
 
 function injectGoToCurrMonth( $source, $list ) {
-	$replace = '$1';
+	$replace = rawurlencode( '$1' );
 	$base = 'http://lists.wikimedia.org/pipermail/' . rawurlencode( $list ) . '/' . $replace;
 	$script = <<<SCRIPT
 	<script>
@@ -75,7 +80,7 @@ function injectGoToLastEntry_StepOne( $source, $params ) {
 		'tmp' => '$1',
 	) ) ;
 	$replace = rawurlencode( '$1' );
-	$base = './getWMML.php?' . http_build_query( $p );
+	$base = './?' . http_build_query( $p );
 	$script = <<<SCRIPT
 	<script>
 	jQuery(function ($) {
@@ -114,7 +119,8 @@ SCRIPT;
 $validActions = array( 'index', 'thismonth', 'lastentry', 'lastentry-processing' );
 
 $params = array(
-	'list' => $kgReq->getVal( 'list' ),
+	// Support 'list' for back-compat. Preferred key is 'name'.
+	'list' => $kgReq->getVal( 'list', $kgReq->getVal( 'name' ) ),
 	'action' => $kgReq->getVal( 'action' ),
 	'tmp' => $kgReq->getVal( 'tmp' ),
 );
