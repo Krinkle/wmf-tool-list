@@ -6,21 +6,6 @@
  *
  *  - https://tools.wmflabs.org/list/?name=wikitech-l&action=lastentry
  *
- * Short urls:
- *
- * - wikitech-l:
- *   - http://bit.ly/wikitechLast
- *   - http://bit.ly/wikitechLatest
- *
- * - toolserver-l:
- *   - http://bit.ly/toolserverLast
- *   - http://bit.ly/toolserverLatest
- *   - http://bit.ly/toolserverMonth
- *
- * - commons-l:
- *   - http://bit.ly/commonsLast
- *   - http://bit.ly/commonsMonth
- *
  * BEWARE: Ugly hacks ahead. Caution proceeding.
  *
  * @license http://krinkle.mit-license.org/
@@ -37,10 +22,28 @@ require_once __DIR__ . '/../lib/basetool/InitTool.php';
  * Functions
  * -------------------------------------------------
  */
+function help() {
+	header( 'Location: https://github.com/Krinkle/wmf-tool-list#readme' );
+	echo '<!doctype html>'
+		. "\n" . '<title>Wikimedia Mailing Lists utilities</title>'
+		. "\n". '<h1>Wikimedia Mailing Lists utilities</h1>'
+		. "\n". '<p><a href="https://github.com/Krinkle/wmf-tool-list#readme">Documentation</a></p>';
+	exit;
+}
+
+function error( $msg ) {
+	echo '<!doctype html>'
+		. "\n" . '<title>Error | Wikimedia Mailing Lists utilities</title>'
+		. "\n". '<h1>Error</h1>'
+		. "\n". '<p>' . htmlspecialchars( $msg ) . '</p>'
+		. '<hr>'
+		. '<p>Wikimedia mailing list utilities: <a href="https://github.com/Krinkle/wmf-tool-list#readme">Documentation</a></p>';
+	exit;
+}
 
 function injectScript( $scriptTag, $source ) {
 	if ( !is_string( $scriptTag ) || !is_string( $source ) ) {
-		die( 'Error while loading script.' );
+		error( 'Error while loading script.' );
 	}
 	return str_ireplace( '</body>', $scriptTag . '</body>', $source );
 
@@ -56,7 +59,7 @@ function downloadListPage( $list = false, $path = '' ) {
 	if ( $sourceCode ) {
 		return $sourceCode;
 	} else {
-		die( 'Error while retrieving list index.' );
+		error( 'Error while retrieving list index.' );
 	}
 }
 
@@ -130,12 +133,16 @@ $params = array(
  * -------------------------------------------------
  */
 
+if ( !count( $kgReq->raw ) ) {
+	help();
+}
+
 if ( $params['list'] === null || $params['list'] === '' ) {
-	die( 'Missing list parameter.' );
+	error( 'Missing "name" parameter.' );
 }
 
 if ( !in_array( $params['action'], $validActions ) ) {
-	die( 'Invalid action.' );
+	error( 'Invalid value for "action" parameter.' );
 }
 
 /**

@@ -1,4 +1,4 @@
-wmf-tool-list
+Wikimedia Mailing Lists utilities
 =============
 
 Redirect service for [Wikimedia mailing lists](https://lists.wikimedia.org/mailman/listinfo).
