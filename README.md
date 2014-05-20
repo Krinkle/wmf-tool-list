@@ -25,3 +25,6 @@ Query parameters:
 * commons-l:
  * http://bit.ly/commonsLatest
  * http://bit.ly/commonsMonth
+* cvn-l:
+ * http://bit.ly/cvnLatest
+ * http://bit.ly/cvnMonth
