@@ -17,12 +17,11 @@ Query parameters:
 ##  Short urls
 
 * wikitech-l:
- * http://bit.ly/wikitechLast
  * http://bit.ly/wikitechLatest
+ * http://bit.ly/wikitechMonth
 * toolserver-l:
- * http://bit.ly/toolserverLast
  * http://bit.ly/toolserverLatest
  * http://bit.ly/toolserverMonth
 * commons-l:
- * http://bit.ly/commonsLast
+ * http://bit.ly/commonsLatest
  * http://bit.ly/commonsMonth
