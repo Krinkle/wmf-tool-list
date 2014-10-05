@@ -50,11 +50,11 @@ function injectScript( $scriptTag, $source ) {
 }
 
 function injectJQuery( $source ) {
-	return injectScript( '<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>', $source );
+	return injectScript( '<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>', $source );
 }
 
 function downloadListPage( $list = false, $path = '' ) {
-	$url = 'http://lists.wikimedia.org/pipermail/' . rawurlencode( $list ) . '/' . $path;
+	$url = 'https://lists.wikimedia.org/pipermail/' . rawurlencode( $list ) . '/' . $path;
 	$sourceCode = file_get_contents( $url );
 	if ( $sourceCode ) {
 		return $sourceCode;
@@ -65,7 +65,7 @@ function downloadListPage( $list = false, $path = '' ) {
 
 function injectGoToCurrMonth( $source, $list ) {
 	$replace = rawurlencode( '$1' );
-	$base = 'http://lists.wikimedia.org/pipermail/' . rawurlencode( $list ) . '/' . $replace;
+	$base = 'https://lists.wikimedia.org/pipermail/' . rawurlencode( $list ) . '/' . $replace;
 	$script = <<<SCRIPT
 	<script>
 	jQuery(function ($) {
@@ -97,7 +97,7 @@ SCRIPT;
 
 function injectGoToLastEntry_StepTwo( $source, $list, $tmp ) {
 	$replace = rawurlencode( '$1' );
-	$base = 'http://lists.wikimedia.org/pipermail/' .
+	$base = 'https://lists.wikimedia.org/pipermail/' .
 		rawurlencode( $list ) . '/' .
 		rawurlencode( str_replace( '/date.html', '', $tmp ) ) .
 		'/' .
