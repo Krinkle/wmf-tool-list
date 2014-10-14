@@ -54,13 +54,13 @@ function injectJQuery( $source ) {
 }
 
 function downloadListPage( $list = false, $path = '' ) {
-	$url = 'https://lists.wikimedia.org/pipermail/' . rawurlencode( $list ) . '/' . $path;
-	$sourceCode = file_get_contents( $url );
-	if ( $sourceCode ) {
-		return $sourceCode;
-	} else {
+	$url = 'https://lists.wikimedia.org/pipermail/' . rawurlencode( $list ) . '/' . rawurlencode( $path );
+
+	$html = HttpRequest::get( $url );
+	if ( !$html ) {
 		error( 'Error while retrieving list index.' );
 	}
+	return $html;
 }
 
 function injectGoToCurrMonth( $source, $list ) {
@@ -133,7 +133,7 @@ $params = array(
  * -------------------------------------------------
  */
 
-if ( !count( $kgReq->raw ) ) {
+if ( !$kgReq->getQueryString() ) {
 	help();
 }
 
