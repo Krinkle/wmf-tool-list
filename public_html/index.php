@@ -54,7 +54,7 @@ function injectJQuery( $source ) {
 }
 
 function downloadListPage( $list = false, $path = '' ) {
-	$url = 'https://lists.wikimedia.org/pipermail/' . rawurlencode( $list ) . '/' . rawurlencode( $path );
+	$url = 'https://lists.wikimedia.org/pipermail/' . rawurlencode( $list ) . '/' . $path;
 
 	$html = HttpRequest::get( $url );
 	if ( !$html ) {
