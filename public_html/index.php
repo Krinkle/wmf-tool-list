@@ -23,11 +23,11 @@ require_once __DIR__ . '/../lib/basetool/InitTool.php';
  * -------------------------------------------------
  */
 function help() {
-	header( 'Location: https://github.com/Krinkle/wmf-tool-list#readme' );
+	http_response_code( 400 );
 	echo '<!doctype html>'
 		. "\n" . '<title>Wikimedia Mailing Lists utilities</title>'
 		. "\n". '<h1>Wikimedia Mailing Lists utilities</h1>'
-		. "\n". '<p><a href="https://github.com/Krinkle/wmf-tool-list#readme">Documentation</a></p>';
+		. "\n". '<p>See <a href="https://github.com/Krinkle/wmf-tool-list#readme">Documentation</a>.</p>';
 	exit;
 }
 
