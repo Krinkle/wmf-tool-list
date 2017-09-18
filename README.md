@@ -17,14 +17,14 @@ Query parameters:
 ##  Short urls
 
 * wikitech-l:
-  * http://bit.ly/wikitechLatest
-  * http://bit.ly/wikitechMonth
+  * https://bit.ly/wikitechLatest
+  * https://bit.ly/wikitechMonth
 * toolserver-l:
-  * http://bit.ly/toolserverLatest
-  * http://bit.ly/toolserverMonth
+  * https://bit.ly/toolserverLatest
+  * https://bit.ly/toolserverMonth
 * commons-l:
-  * http://bit.ly/commonsLatest
-  * http://bit.ly/commonsMonth
+  * https://bit.ly/commonsLatest
+  * https://bit.ly/commonsMonth
 * cvn-l:
-  * http://bit.ly/cvnLatest
-  * http://bit.ly/cvnMonth
+  * https://bit.ly/cvnLatest
+  * https://bit.ly/cvnMonth
