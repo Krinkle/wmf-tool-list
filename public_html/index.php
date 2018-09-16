@@ -50,7 +50,7 @@ function injectScript( $scriptTag, $source ) {
 }
 
 function injectJQuery( $source ) {
-	return injectScript( '<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>', $source );
+	return injectScript( '<script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/jquery/1.11.1/jquery.min.js"></script>', $source );
 }
 
 function downloadListPage( $list = false, $path = '' ) {
