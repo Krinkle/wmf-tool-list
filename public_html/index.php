@@ -156,7 +156,7 @@ if ( $params['action'] == 'thismonth' ) {
 if ( $params['action'] == 'lastentry' ) {
 	$html = WmfListTool::downloadListPage( $params['list'] );
 	$html = WmfListTool::injectJQuery( $html );
-	echo injectGoToLastEntry_StepOne( $html, $params );
+	echo WmfListTool::injectGoToLastEntry_StepOne( $html, $params );
 	exit;
 }
 
