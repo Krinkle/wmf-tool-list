@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.com/Krinkle/wmf-tool-list.svg?branch=master)](https://travis-ci.com/Krinkle/wmf-tool-list)
 
-Wikimedia Mailing Lists utilities
+Wikimedia Mailing list utilities
 =============
 
 Redirect service for [Wikimedia mailing lists](https://lists.wikimedia.org/mailman/listinfo).
@@ -9,11 +9,11 @@ Redirect service for [Wikimedia mailing lists](https://lists.wikimedia.org/mailm
 
 Query parameters:
 
-* `name`: Name of the mailing list
+* `list`: Name of the mailing list
 * `action`: One of:
-  * `index` ([example](https://tools.wmflabs.org/list/?name=wikitech-l&action=index)): Redirect to the archive index
-  * `thismonth` ([example](https://tools.wmflabs.org/list/?name=wikitech-l&action=thismonth)): Redirect to this month's archive
-  * `lastentry` ([example](https://tools.wmflabs.org/list/?name=wikitech-l&action=lastentry)): Redirect to the most recent post on the list
+  * `index` ([example](https://list.toolforge.org/?list=wikitech-l&action=index)): Redirect to the archive index
+  * `thismonth` ([example](https://list.toolforge.org/?list=wikitech-l&action=thismonth)): Redirect to this month's archive
+  * `lastentry` ([example](https://list.toolforge.org/?list=wikitech-l&action=lastentry)): Redirect to the most recent post on the list
 
 ##  Short urls
 
@@ -34,4 +34,6 @@ Query parameters:
 
 1. Clone this repository.
 2. Run `composer update --no-dev` for deployment (_or `composer update` for local development_).
-3. View `your-server/wmf-tool-list/public_html/` via a PHP-capable server (e.g. run `php -S` in public_html locally, or symlink public_html to a pre-existing public path).
+3. Expose `wmf-tool-list/public_html/` from a web server that supports PHP.
+
+For local development, run `composer serve` and open <http://localhost:4000>. Example query: <http://localhost:4000/?list=wikitech-l&action=thismonth>.

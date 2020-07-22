@@ -1,12 +1,15 @@
 {
 	"require": {
-		"php": ">=7.1",
-		"Krinkle/toollabs-base": "^1.0.2"
+		"php": ">=7.2"
 	},
 	"require-dev": {
 		"jakub-onderka/php-parallel-lint": "1.0.0"
 	},
+	"config": {
+		"process-timeout": 0
+	},
 	"scripts": {
+		"serve": "php -S localhost:4000 -t public_html/",
 		"test": [
 			"parallel-lint . --exclude vendor"
 		]
